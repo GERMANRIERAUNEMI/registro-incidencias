@@ -1,5 +1,5 @@
-// Sistema de Registro de Incidencias - v1.0.0
-// Registro y listado de incidencias (datos guardados en localStorage)
+// Sistema de Registro de Incidencias - v1.1.0
+// Registro, listado y filtro de incidencias (datos guardados en localStorage)
 
 const CLAVE = "incidencias";
 
@@ -19,8 +19,14 @@ function guardarIncidencias(lista) {
   }
 }
 
-function mostrarIncidencias() {
-  const lista = obtenerIncidencias();
+function mostrarIncidencias(filtro) {
+  let lista = obtenerIncidencias();
+  if (filtro && filtro !== "Todas") {
+    lista = lista.filter(function (inc) {
+      return inc.estado === filtro;
+    });
+  }
+
   const tabla = document.getElementById("tabla-incidencias");
   const sinDatos = document.getElementById("sin-datos");
 
@@ -56,6 +62,10 @@ document.getElementById("form-incidencia").addEventListener("submit", function (
 
   e.target.reset();
   mostrarIncidencias();
+});
+
+document.getElementById("filtro-estado").addEventListener("change", function (e) {
+  mostrarIncidencias(e.target.value);
 });
 
 mostrarIncidencias();
