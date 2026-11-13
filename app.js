@@ -1,4 +1,4 @@
-// Sistema de Registro de Incidencias - v1.1.0
+// Sistema de Registro de Incidencias - v1.1.1
 // Registro, listado y filtro de incidencias (datos guardados en localStorage)
 
 const CLAVE = "incidencias";
@@ -61,7 +61,7 @@ document.getElementById("form-incidencia").addEventListener("submit", function (
   guardarIncidencias(lista);
 
   e.target.reset();
-  mostrarIncidencias();
+  mostrarIncidencias(document.getElementById("filtro-estado").value);
 });
 
 document.getElementById("filtro-estado").addEventListener("change", function (e) {
