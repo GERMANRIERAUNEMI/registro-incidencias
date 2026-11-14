@@ -107,3 +107,16 @@ th {
 .filtro select {
  margin-top: 0;
 }
+
+@media (max-width: 600px) {
+ header h1 {
+ font-size: 1.2rem;
+ }
+ table {
+ font-size: 0.85rem;
+ }
+ th,
+ td {
+ padding: 6px 4px;
+ }
+}
