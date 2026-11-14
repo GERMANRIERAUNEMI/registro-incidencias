@@ -96,3 +96,14 @@ th {
   color: #777;
   text-align: center;
 }
+
+.filtro {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ margin-bottom: 15px;
+}
+.filtro label,
+.filtro select {
+ margin-top: 0;
+}
